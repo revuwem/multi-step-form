@@ -3,7 +3,7 @@ interface ParagraphProps {
 }
 
 const Paragraph: React.FC<ParagraphProps> = ({ children }) => {
-  return <p className="text-sm text-cool-gray">{children}</p>;
+  return <p className="text-base text-cool-gray">{children}</p>;
 };
 
 export default Paragraph;
