@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Paragraph from "./Paragraph";
 
 export default {
-  title: "Paragraph",
+  title: "UI/Paragraph",
   component: Paragraph,
 } as ComponentMeta<typeof Paragraph>;
 

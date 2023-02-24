@@ -3,7 +3,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Heading from "./Heading";
 
 export default {
-  title: "Heading",
+  title: "UI/Heading",
   component: Heading,
   argTypes: {
     level: {
