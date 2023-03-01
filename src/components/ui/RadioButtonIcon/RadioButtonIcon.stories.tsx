@@ -15,4 +15,5 @@ export const Default = Template.bind({});
 Default.args = {
   id: "1",
   name: "plan",
+  checked: false,
 };
