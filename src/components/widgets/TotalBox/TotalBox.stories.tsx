@@ -12,4 +12,21 @@ const Template: ComponentStory<typeof TotalBox> = (args) => (
 );
 
 export const Default = Template.bind({});
-Default.args = {};
+Default.args = {
+  period: "year",
+  plan: {
+    name: "Arcade",
+    price: "$90/yr",
+  },
+  addons: [
+    {
+      name: "Online service",
+      price: "+$10/yr",
+    },
+    {
+      name: "Larger storage",
+      price: "+$20/yr",
+    },
+  ],
+  total: "$120/yr",
+};
