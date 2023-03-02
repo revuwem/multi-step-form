@@ -12,13 +12,12 @@ interface RadioButtonIconProps {
 }
 
 const RadioButtonIcon: React.FC<RadioButtonIconProps> = ({
-  checked,
   content,
   ...props
 }) => {
   const labelClassName = [
     "max-w-[8.625rem] p-3 flex flex-col gap-10 border rounded hover:border-purplish-blue hover:cursor-pointer",
-    checked ? "border-purplish-blue" : "border-light-gray",
+    props.checked ? "border-purplish-blue" : "border-light-gray",
   ].join(" ");
 
   const { title, label, note, iconSrc } = content;
@@ -33,7 +32,7 @@ const RadioButtonIcon: React.FC<RadioButtonIconProps> = ({
         <p className="text-sm text-cool-gray">{label}</p>
         {note && <p className="text-sm text-marine-blue">{note}</p>}
       </div>
-      <input type="radio" className="hidden" checked={checked} />
+      <input type="radio" className="hidden" {...props} />
     </label>
   );
 };
