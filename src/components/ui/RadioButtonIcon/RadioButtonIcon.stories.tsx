@@ -16,4 +16,23 @@ Default.args = {
   id: "1",
   name: "plan",
   checked: false,
+  content: {
+    iconSrc: "public/assets/images/icon-arcade.svg",
+    title: "Arcade",
+    label: "$90/yr",
+    note: "",
+  },
+};
+
+export const WithNote = Template.bind({});
+WithNote.args = {
+  id: "1",
+  name: "plan",
+  checked: false,
+  content: {
+    iconSrc: "/assets/images/icon-arcade.svg",
+    title: "Arcade",
+    label: "$90/yr",
+    note: "2 month free",
+  },
 };
