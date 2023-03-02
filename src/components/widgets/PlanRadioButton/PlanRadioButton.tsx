@@ -5,7 +5,7 @@ interface PlanRadioButtonProps {
   content: {
     title: string;
     label: string;
-    note: string;
+    note?: string;
     iconSrc: string;
   };
   onChange: () => void;
