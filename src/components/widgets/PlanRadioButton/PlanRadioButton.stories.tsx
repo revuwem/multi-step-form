@@ -1,14 +1,14 @@
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 
-import RadioButtonIcon from "./RadioButtonIcon";
+import PlanRadioButton from "./PlanRadioButton";
 
 export default {
-  title: "UI/RadioButtonIcon",
-  component: RadioButtonIcon,
-} as ComponentMeta<typeof RadioButtonIcon>;
+  title: "UI/PlanRadioButton",
+  component: PlanRadioButton,
+} as ComponentMeta<typeof PlanRadioButton>;
 
-const Template: ComponentStory<typeof RadioButtonIcon> = (args) => (
-  <RadioButtonIcon {...args} />
+const Template: ComponentStory<typeof PlanRadioButton> = (args) => (
+  <PlanRadioButton {...args} />
 );
 
 export const Default = Template.bind({});

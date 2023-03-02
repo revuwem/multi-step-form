@@ -1,4 +1,4 @@
-interface RadioButtonIconProps {
+interface PlanRadioButtonProps {
   id: string;
   name: string;
   checked: boolean;
@@ -11,7 +11,7 @@ interface RadioButtonIconProps {
   onChange: () => void;
 }
 
-const RadioButtonIcon: React.FC<RadioButtonIconProps> = ({
+const PlanRadioButton: React.FC<PlanRadioButtonProps> = ({
   content,
   ...props
 }) => {
@@ -37,4 +37,4 @@ const RadioButtonIcon: React.FC<RadioButtonIconProps> = ({
   );
 };
 
-export default RadioButtonIcon;
+export default PlanRadioButton;
