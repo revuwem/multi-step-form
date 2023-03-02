@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PlanRadioButton from "./PlanRadioButton";
 
 export default {
-  title: "UI/PlanRadioButton",
+  title: "Widgets/PlanRadioButton",
   component: PlanRadioButton,
 } as ComponentMeta<typeof PlanRadioButton>;
 
@@ -17,7 +17,7 @@ Default.args = {
   name: "plan",
   checked: false,
   content: {
-    iconSrc: "public/assets/images/icon-arcade.svg",
+    iconSrc: "/assets/images/icon-arcade.svg",
     title: "Arcade",
     label: "$90/yr",
     note: "",
