@@ -16,6 +16,7 @@ const AddonCheckbox: React.FC<AddonCheckboxProps> = ({ content, ...props }) => {
   const containerClassName = [
     "text-base p-5 flex items-center gap-5 border rounded transition hover:border-purplish-blue hover:cursor-pointer",
     props.checked ? "border-purplish-blue" : "border-light-gray",
+    props.checked ? "bg-alabaster" : "bg-white",
   ].join(" ");
 
   return (
