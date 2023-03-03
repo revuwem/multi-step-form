@@ -1,6 +1,7 @@
 interface HeadingProps {
   level: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   children: React.ReactNode;
+  className?: string;
 }
 
 const headingStyles = {
@@ -12,10 +13,16 @@ const headingStyles = {
   h6: "",
 };
 
-const Heading: React.FC<HeadingProps> = ({ level, children }) => {
+const Heading: React.FC<HeadingProps> = ({
+  level,
+  children,
+  className = "",
+}) => {
   const HeadingLevel = level;
   return (
-    <HeadingLevel className={headingStyles[level]}>{children}</HeadingLevel>
+    <HeadingLevel className={[headingStyles[level], className].join(" ")}>
+      {children}
+    </HeadingLevel>
   );
 };
 
