@@ -15,7 +15,7 @@ const FormControl: React.FC<FormControl> = ({
   return (
     <div className="mb-4">
       <div className="flex justify-between items-end mb-2">
-        <Label htmlFor={props.id}>Label</Label>
+        <Label htmlFor={props.id}>{label}</Label>
         {error && <ErrorLabel>This field is required</ErrorLabel>}
       </div>
       <Input error={error} {...props} />
