@@ -25,7 +25,7 @@ const steps = [
 
 const Info: React.FC<{}> = () => {
   return (
-    <main className="min-h-[600px] p-4 grid grid-cols-4 rouded-xl">
+    <main className="min-h-[600px] max-w-[940px] p-4 grid grid-cols-4 rouded-xl">
       <Stepper steps={steps} />
       <section className="px-24 py-6 col-span-3 flex flex-col">
         <Heading level="h2" className="mb-2">
