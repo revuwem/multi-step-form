@@ -16,7 +16,7 @@ const PlanRadioButton: React.FC<PlanRadioButtonProps> = ({
   ...props
 }) => {
   const labelClassName = [
-    "max-w-[8.625rem] p-3 flex flex-col gap-10 border rounded hover:border-purplish-blue hover:cursor-pointer",
+    "p-3 flex flex-col gap-10 border rounded hover:border-purplish-blue hover:cursor-pointer",
     props.checked ? "border-purplish-blue" : "border-light-gray",
     props.checked ? "bg-alabaster" : "bg-white",
   ].join(" ");
