@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from "@storybook/react";
 import AddonCheckbox from "./AddonCheckbox";
 
 export default {
-  title: "Widgets/AddonCheckbox",
+  title: "Features/AddonCheckbox",
   component: AddonCheckbox,
 } as ComponentMeta<typeof AddonCheckbox>;
 
