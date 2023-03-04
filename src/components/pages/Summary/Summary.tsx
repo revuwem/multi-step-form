@@ -2,7 +2,7 @@ import PeriodSwitch from "../../features/PeriodSwitch/PeriodSwitch";
 import Button from "../../ui/Button/Button";
 import Heading from "../../ui/Heading/Heading";
 import Paragraph from "../../ui/Paragraph/Paragraph";
-import Stepper from "../../widgets/Stepper/Stepper";
+import Stepper from "../../features/Stepper/Stepper";
 import TotalBox from "../../widgets/TotalBox/TotalBox";
 
 const steps = [

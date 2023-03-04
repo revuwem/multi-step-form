@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Stepper from "./Stepper";
 
 export default {
-  title: "Widgets/Stepper",
+  title: "Features/Stepper",
   component: Stepper,
 } as ComponentMeta<typeof Stepper>;
 

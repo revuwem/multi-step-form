@@ -1,5 +1,5 @@
 import UIMessage from "../../ui/UIMessage/UIMessage";
-import Stepper from "../../widgets/Stepper/Stepper";
+import Stepper from "../../features/Stepper/Stepper";
 
 const steps = [
   {
