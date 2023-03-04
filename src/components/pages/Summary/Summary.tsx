@@ -24,7 +24,7 @@ const steps = [
   },
 ];
 
-const Confirm: React.FC<{}> = () => {
+const Summary: React.FC<{}> = () => {
   return (
     <main className="min-h-[600px] max-w-[940px] p-4 grid grid-cols-4 rouded-xl">
       <Stepper steps={steps} />
@@ -53,4 +53,4 @@ const Confirm: React.FC<{}> = () => {
   );
 };
 
-export default Confirm;
+export default Summary;
