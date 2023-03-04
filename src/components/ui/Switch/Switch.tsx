@@ -1,10 +1,11 @@
 interface SwitchProps {
   checked?: boolean;
+  onChange?: () => void;
 }
 
 const Switch: React.FC<SwitchProps> = (props) => {
   return (
-    <div>
+    <div onClick={props.onChange}>
       <input type="checkbox" className="hidden" {...props} />
       <div className="w-10 h-5 p-1 bg-marine-blue rounded-xl flex items-center">
         <span
