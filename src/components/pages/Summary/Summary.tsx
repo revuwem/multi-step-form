@@ -3,7 +3,7 @@ import Button from "../../ui/Button/Button";
 import Heading from "../../ui/Heading/Heading";
 import Paragraph from "../../ui/Paragraph/Paragraph";
 import Stepper from "../../features/Stepper/Stepper";
-import TotalBox from "../../widgets/TotalBox/TotalBox";
+import TotalBox from "../../features/TotalBox/TotalBox";
 
 const steps = [
   {

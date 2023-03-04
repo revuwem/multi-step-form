@@ -3,7 +3,7 @@ import Button from "../../ui/Button/Button";
 import Heading from "../../ui/Heading/Heading";
 import Paragraph from "../../ui/Paragraph/Paragraph";
 import FormControl from "../../widgets/FormControl/FormControl";
-import PlanRadioButton from "../../widgets/PlanRadioButton/PlanRadioButton";
+import PlanRadioButton from "../../features/PlanRadioButton/PlanRadioButton";
 import Stepper from "../../features/Stepper/Stepper";
 
 const steps = [
