@@ -1,4 +1,4 @@
-import PeriodSwitch from "../../features/PeriodSwitch";
+import PeriodSwitch from "../../features/PeriodSwitch/PeriodSwitch";
 import Button from "../../ui/Button/Button";
 import Heading from "../../ui/Heading/Heading";
 import Paragraph from "../../ui/Paragraph/Paragraph";

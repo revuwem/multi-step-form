@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Switch from "../ui/Switch/Switch";
+import Switch from "../../ui/Switch/Switch";
 
 const PeriodSwitch: React.FC<{}> = () => {
   const [isYearly, setIsYearly] = useState<boolean>(false);
