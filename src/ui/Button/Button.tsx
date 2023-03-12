@@ -1,8 +1,13 @@
-interface ButtonProps {
+const ButtonDefaultAsType = "button" as const;
+
+interface ButtonBaseProps<E extends React.ElementType> {
+  as?: E;
   children: React.ReactNode;
   variant?: "primary" | "secondary" | "ghost";
-  onClick?: () => void;
 }
+
+type ButtonProps<E extends React.ElementType> = ButtonBaseProps<E> &
+  Omit<React.ComponentProps<E>, keyof ButtonBaseProps<E>>;
 
 const ButtonClassNames = {
   base: "font-md capitalize font-medium py-3 px-6 rounded-lg transition focus-visible:outline-purplish-blue",
@@ -13,21 +18,23 @@ const ButtonClassNames = {
   },
 };
 
-const Button: React.FC<ButtonProps> = ({
+const Button = <E extends React.ElementType = typeof ButtonDefaultAsType>({
   variant = "primary",
+  as,
   children,
-  onClick,
-}) => {
+  ...props
+}: ButtonProps<E>) => {
+  const Component = as || ButtonDefaultAsType;
   return (
-    <button
+    <Component
       className={[
         ButtonClassNames.base,
         ButtonClassNames.variant[variant],
       ].join(" ")}
-      onClick={onClick}
+      {...props}
     >
       {children}
-    </button>
+    </Component>
   );
 };
 
