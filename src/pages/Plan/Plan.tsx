@@ -5,25 +5,6 @@ import Paragraph from "../../ui/Paragraph/Paragraph";
 import PeriodSwitch from "../../features/PeriodSwitch/PeriodSwitch";
 import PlanRadioButton from "../../features/PlanRadioButton/PlanRadioButton";
 
-const steps = [
-  {
-    number: "1",
-    label: "Your info",
-  },
-  {
-    number: "2",
-    label: "Select plan",
-  },
-  {
-    number: "3",
-    label: "Add-ons",
-  },
-  {
-    number: "4",
-    label: "Summary",
-  },
-];
-
 const Plan: React.FC<{}> = () => {
   return (
     <Layout>
