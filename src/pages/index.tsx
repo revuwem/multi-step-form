@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 import Addons from "./Addons/Addons";
 import Info from "./Info/Info";
 import Plan from "./Plan/Plan";
+import Success from "./Success/Success";
 import Summary from "./Summary/Summary";
 
 const router = createBrowserRouter([
@@ -29,6 +30,13 @@ const router = createBrowserRouter([
   {
     path: "/summary",
     element: <Summary />,
+    errorElement: (
+      <div>Sorry, we couldn't find the page you are looking for</div>
+    ),
+  },
+  {
+    path: "/success",
+    element: <Success />,
     errorElement: (
       <div>Sorry, we couldn't find the page you are looking for</div>
     ),
