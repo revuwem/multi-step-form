@@ -4,6 +4,7 @@ import Heading from "../../ui/Heading/Heading";
 import Paragraph from "../../ui/Paragraph/Paragraph";
 import PeriodSwitch from "../../features/PeriodSwitch/PeriodSwitch";
 import PlanRadioButton from "../../features/PlanRadioButton/PlanRadioButton";
+import { Link } from "react-router-dom";
 
 const Plan: React.FC<{}> = () => {
   return (
@@ -53,8 +54,12 @@ const Plan: React.FC<{}> = () => {
         <PeriodSwitch />
       </form>
       <div className="grow flex flex-row-reverse justify-between items-end">
-        <Button variant="secondary">Next step</Button>
-        <Button variant="ghost">Go back</Button>
+        <Button as={Link} to="/addons" variant="secondary">
+          Next step
+        </Button>
+        <Button as={Link} to="/" variant="ghost">
+          Go back
+        </Button>
       </div>
     </Layout>
   );

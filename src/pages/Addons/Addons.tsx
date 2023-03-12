@@ -3,6 +3,7 @@ import Heading from "../../ui/Heading/Heading";
 import Paragraph from "../../ui/Paragraph/Paragraph";
 import AddonCheckbox from "../../features/AddonCheckbox/AddonCheckbox";
 import Layout from "../../features/Layout/Layout";
+import { Link } from "react-router-dom";
 
 const Addons: React.FC<{}> = () => {
   return (
@@ -51,8 +52,12 @@ const Addons: React.FC<{}> = () => {
         </div>
       </form>
       <div className="grow flex flex-row-reverse justify-between items-end">
-        <Button variant="secondary">Next step</Button>
-        <Button variant="ghost">Go back</Button>
+        <Button as={Link} to="/summary" variant="secondary">
+          Next step
+        </Button>
+        <Button as={Link} to="/plan" variant="ghost">
+          Go back
+        </Button>
       </div>
     </Layout>
   );

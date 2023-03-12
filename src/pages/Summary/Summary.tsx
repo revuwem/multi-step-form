@@ -3,6 +3,7 @@ import Button from "../../ui/Button/Button";
 import Heading from "../../ui/Heading/Heading";
 import Paragraph from "../../ui/Paragraph/Paragraph";
 import TotalBox from "../../features/TotalBox/TotalBox";
+import { Link } from "react-router-dom";
 
 const Summary: React.FC<{}> = () => {
   return (
@@ -23,8 +24,12 @@ const Summary: React.FC<{}> = () => {
         total="$100/yr"
       />
       <div className="flex flex-row-reverse justify-between items-end">
-        <Button variant="primary">Confirm</Button>
-        <Button variant="ghost">Go back</Button>
+        <Button as={Link} to="/success">
+          Confirm
+        </Button>
+        <Button as={Link} to="/addons" variant="ghost">
+          Go back
+        </Button>
       </div>
     </Layout>
   );

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Layout from "../../features/Layout/Layout";
 import Button from "../../ui/Button/Button";
 import Heading from "../../ui/Heading/Heading";
@@ -31,7 +32,9 @@ const Info: React.FC<{}> = () => {
         />
       </form>
       <div className="grow flex flex-row-reverse items-end">
-        <Button variant="secondary">Next step</Button>
+        <Button as={Link} to="/plan" variant="secondary">
+          Next step
+        </Button>
       </div>
     </Layout>
   );
