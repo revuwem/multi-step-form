@@ -16,6 +16,10 @@ module.exports = {
         alabaster: "var(--color-alabaster)",
         white: "var(--color-white)",
       },
+      gridTemplateRows: {
+        // Complex site-specific row configuration
+        layout: "auto auto 1fr auto",
+      },
     },
   },
   plugins: [],
