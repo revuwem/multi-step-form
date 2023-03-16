@@ -25,7 +25,7 @@ export const SubscriptionContextProvider: React.FC<React.PropsWithChildren> = ({
   const [state, setState] = useState(subscriptionDefaultValue.state);
 
   return (
-    <SubscriptionContext.Provider value={state}>
+    <SubscriptionContext.Provider value={{ state, setState }}>
       {children}
     </SubscriptionContext.Provider>
   );
