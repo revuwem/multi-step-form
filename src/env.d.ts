@@ -6,8 +6,10 @@ interface ISubscription {
   };
   plan: IPlan | null;
   addons: IAddon[] | null;
-  period: "monthly" | "yearly";
+  period: SubscriptionPeriod;
 }
+
+type SubscriptionPeriod = "month" | "year"
 
 interface IPlan {
     id: number;
