@@ -1,5 +1,5 @@
 interface ISubscription {
-  personal: {
+  info: {
     name: string;
     email: string;
     phone: string;
