@@ -4,8 +4,8 @@ interface ISubscription {
     email: string;
     phone: string;
   };
-  plan: IPlan;
-  addons: IAddon[];
+  plan: IPlan | null;
+  addons: IAddon[] | null;
   period: "monthly" | "yearly";
 }
 
