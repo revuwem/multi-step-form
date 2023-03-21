@@ -1,5 +1,10 @@
+import { Path, UseFormRegister } from "react-hook-form";
+
 interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   error?: boolean;
+  label: Path<ISubscription>;
+  register: UseFormRegister<ISubscription>;
+  required: boolean;
 }
 
 const InputStyles = {
@@ -8,7 +13,13 @@ const InputStyles = {
   error: "border-strawberry-red",
 };
 
-const Input: React.FC<InputProps> = ({ error = false, ...props }) => {
+const Input: React.FC<InputProps> = ({
+  error = false,
+  label,
+  register,
+  required,
+  ...props
+}) => {
   return (
     <input
       className={[
@@ -16,6 +27,7 @@ const Input: React.FC<InputProps> = ({ error = false, ...props }) => {
         InputStyles.focusVisible,
         error && InputStyles.error,
       ].join(" ")}
+      {...register(label, { required })}
       {...props}
     />
   );
