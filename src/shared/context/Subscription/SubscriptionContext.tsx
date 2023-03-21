@@ -31,6 +31,8 @@ export const SubscriptionContextProvider: React.FC<React.PropsWithChildren> = ({
   );
 };
 
+SubscriptionContextProvider.displayName = "SubscriptionContextProvider";
+
 // Use context state hook
 export const useSubscriptionState = () => {
   const context = useContext(SubscriptionContext);
