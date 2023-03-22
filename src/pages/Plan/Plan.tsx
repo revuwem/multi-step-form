@@ -4,9 +4,22 @@ import Heading from "../../ui/Heading/Heading";
 import Paragraph from "../../ui/Paragraph/Paragraph";
 import PeriodSwitch from "../../features/PeriodSwitch/PeriodSwitch";
 import PlanRadioButton from "../../features/PlanRadioButton/PlanRadioButton";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSubscriptionState } from "../../shared/context/Subscription/SubscriptionContext";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 const Plan: React.FC<{}> = () => {
+  const { state, setState } = useSubscriptionState();
+  const { handleSubmit, control } = useForm<ISubscription>({
+    defaultValues: state,
+  });
+  const navigate = useNavigate();
+
+  const onSubmit: SubmitHandler<ISubscription> = (data) => {
+    setState({ ...state, plan: data.plan, period: data.period });
+    navigate("/addons");
+  };
+
   return (
     <Layout>
       <Heading level="h2" className="mb-2">
@@ -18,43 +31,43 @@ const Plan: React.FC<{}> = () => {
       <form action="">
         <div className="mb-8 grid grid-cols-3 gap-5">
           <PlanRadioButton
-            id="plan"
+            id="plan-arcade"
             name="plan"
+            value="arcade"
+            control={control}
             content={{
               title: "Arcade",
               label: "$9/mo",
               iconSrc: "/assets/images/icon-arcade.svg",
             }}
-            checked={false}
-            onChange={() => {}}
           />
           <PlanRadioButton
-            id="plan"
+            id="plan-advanced"
             name="plan"
+            value="advanced"
+            control={control}
             content={{
               title: "Advanced",
               label: "$12/mo",
               iconSrc: "/assets/images/icon-advanced.svg",
             }}
-            checked={false}
-            onChange={() => {}}
           />
           <PlanRadioButton
-            id="plan"
+            id="plan-pro"
             name="plan"
+            value="pro"
+            control={control}
             content={{
               title: "Pro",
               label: "$15/mo",
               iconSrc: "/assets/images/icon-pro.svg",
             }}
-            checked={false}
-            onChange={() => {}}
           />
         </div>
-        <PeriodSwitch />
+        <PeriodSwitch name="period" control={control} />
       </form>
       <div className="grow flex flex-row-reverse justify-between items-end">
-        <Button as={Link} to="/addons" variant="secondary">
+        <Button onClick={handleSubmit(onSubmit)} variant="secondary">
           Next step
         </Button>
         <Button as={Link} to="/" variant="ghost">
