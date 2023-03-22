@@ -2,18 +2,18 @@ import { useState } from "react";
 import Switch from "../../ui/Switch/Switch";
 
 const PeriodSwitch: React.FC<{}> = () => {
-  const [isYearly, setIsYearly] = useState<boolean>(false);
+  const [period, setPeriod] = useState<SubscriptionPeriod>("month");
 
   const onPeriodChange = () => {
-    setIsYearly((value) => !value);
+    setPeriod((period) => (period === "month" ? "year" : "month"));
   };
 
   const onSetPeriodMonthly = () => {
-    setIsYearly(false);
+    setPeriod("month");
   };
 
   const onSetPeriodYearly = () => {
-    setIsYearly(true);
+    setPeriod("year");
   };
 
   return (
@@ -21,17 +21,17 @@ const PeriodSwitch: React.FC<{}> = () => {
       <span
         className={[
           "text-sm font-medium hover:cursor-pointer",
-          !isYearly ? "text-marine-blue" : "text-cool-gray",
+          period === "month" ? "text-marine-blue" : "text-cool-gray",
         ].join(" ")}
         onClick={onSetPeriodMonthly}
       >
         Monthly
       </span>
-      <Switch onChange={onPeriodChange} checked={isYearly} />
+      <Switch onChange={onPeriodChange} checked={period === "year"} />
       <span
         className={[
           "text-sm font-medium hover:cursor-pointer",
-          isYearly ? "text-marine-blue" : "text-cool-gray",
+          period === "year" ? "text-marine-blue" : "text-cool-gray",
         ].join(" ")}
         onClick={onSetPeriodYearly}
       >
