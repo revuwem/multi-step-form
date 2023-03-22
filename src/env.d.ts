@@ -4,12 +4,13 @@ interface ISubscription {
     email: string;
     phone: string;
   };
-  plan: IPlan | null;
+  plan: SubscriptionPlan;
   addons: IAddon[] | null;
   period: SubscriptionPeriod;
 }
 
 type SubscriptionPeriod = "month" | "year"
+type SubscriptionPlan = "arcade" | "advanced" | "pro"
 
 interface IPlan {
     id: number;
