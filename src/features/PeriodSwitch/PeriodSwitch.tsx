@@ -1,19 +1,24 @@
-import { useState } from "react";
+import { useController, UseControllerProps } from "react-hook-form";
 import Switch from "../../ui/Switch/Switch";
 
-const PeriodSwitch: React.FC<{}> = () => {
-  const [period, setPeriod] = useState<SubscriptionPeriod>("month");
+interface PeriodSwitchProps
+  extends UseControllerProps<ISubscription, "period"> {}
+
+const PeriodSwitch: React.FC<PeriodSwitchProps> = (props) => {
+  const {
+    field: { value: period, onChange },
+  } = useController(props);
 
   const onPeriodChange = () => {
-    setPeriod((period) => (period === "month" ? "year" : "month"));
+    onChange(period === "month" ? "year" : "month");
   };
 
   const onSetPeriodMonthly = () => {
-    setPeriod("month");
+    onChange("month");
   };
 
   const onSetPeriodYearly = () => {
-    setPeriod("year");
+    onChange("year");
   };
 
   return (
