@@ -9,9 +9,10 @@ interface AddonCheckboxProps
     > {
   id: string;
   content: {
-    title: string;
-    label: string;
-    price: string;
+    name: string;
+    description: string;
+    price: number;
+    period: "mo" | "yr";
   };
 }
 
@@ -23,8 +24,6 @@ const AddonCheckbox: React.FC<AddonCheckboxProps> = ({ content, ...props }) => {
     control: props.control,
   });
   const checked = useMemo(() => value[props.id] ?? false, [value]);
-
-  const { title, label, price } = content;
 
   const containerClassName = [
     "text-base p-5 flex items-center gap-5 border rounded transition hover:border-purplish-blue hover:cursor-pointer",
@@ -76,10 +75,10 @@ const AddonCheckbox: React.FC<AddonCheckboxProps> = ({ content, ...props }) => {
         </svg>
       </div>
       <div className="grow">
-        <p className="text-marine-blue font-medium">{title}</p>
-        <p className="text-sm text-cool-gray">{label}</p>
+        <p className="text-marine-blue font-medium">{content.name}</p>
+        <p className="text-sm text-cool-gray">{content.description}</p>
       </div>
-      <p className="text-sm text-purplish-blue">{price}</p>
+      <p className="text-sm text-purplish-blue">{`$${content.price}/${content.period}`}</p>
     </label>
   );
 };
