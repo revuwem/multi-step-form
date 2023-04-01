@@ -1,31 +1,63 @@
-interface AddonCheckboxProps {
+import { useMemo } from "react";
+import { useController, UseControllerProps } from "react-hook-form";
+
+interface AddonCheckboxProps
+  extends UseControllerProps<ISubscription, "addons">,
+    Omit<
+      React.InputHTMLAttributes<HTMLInputElement>,
+      keyof UseControllerProps<ISubscription, "addons">
+    > {
   id: string;
-  name: string;
-  checked: boolean;
   content: {
     title: string;
     label: string;
     price: string;
   };
-  onChange: () => void;
 }
 
 const AddonCheckbox: React.FC<AddonCheckboxProps> = ({ content, ...props }) => {
+  const {
+    field: { value, onChange },
+  } = useController({
+    name: props.name,
+    control: props.control,
+  });
+  const checked = useMemo(() => value[props.id] ?? false, [value]);
+
   const { title, label, price } = content;
 
   const containerClassName = [
     "text-base p-5 flex items-center gap-5 border rounded transition hover:border-purplish-blue hover:cursor-pointer",
-    props.checked ? "border-purplish-blue" : "border-light-gray",
-    props.checked ? "bg-alabaster" : "bg-white",
+    checked ? "border-purplish-blue" : "border-light-gray",
+    checked ? "bg-alabaster" : "bg-white",
   ].join(" ");
 
+  const onInputChange = () => {
+    const newValue = { ...value };
+    // if addon already exist, then change value to opposite,
+    // else add with "true" value
+    newValue[props.id]
+      ? (newValue[props.id] = !newValue[props.id])
+      : (newValue[props.id] = true);
+    onChange(newValue);
+  };
+
   return (
-    <label htmlFor={props.name} className={containerClassName}>
-      <input type="checkbox" {...props} className="hidden" />
+    <label
+      htmlFor={props.name}
+      className={containerClassName}
+      onClick={onInputChange}
+    >
+      <input
+        type="checkbox"
+        checked={checked}
+        onChange={onInputChange}
+        className="hidden"
+      />
       <div
         className={[
           "w-[1.25em] h-[1.25em] grid place-content-center transition border border-light-gray rounded",
-          props.checked ? "bg-purplish-blue" : "",
+          checked ? "bg-purplish-blue" : "",
         ].join(" ")}
       >
         <svg
