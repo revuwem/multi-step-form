@@ -5,7 +5,10 @@
     "icon": "/assets/images/icon-arcade.svg",
     "price": {
       "month": 9,
-      "year": 12
+      "year": 90
+    },
+    "specialOffer": {
+      "year": "2 months free"
     }
   },
   {
@@ -14,7 +17,10 @@
     "icon": "/assets/images/icon-advanced.svg",
     "price": {
       "month": 12,
-      "year": 15
+      "year": 120
+    },
+    "specialOffer": {
+      "year": "2 months free"
     }
   },
   {
@@ -23,7 +29,10 @@
     "icon": "/assets/images/icon-pro.svg",
     "price": {
       "month": 15,
-      "year": 18
+      "year": 150
+    },
+    "specialOffer": {
+      "year": "2 months free"
     }
   }
 ]
