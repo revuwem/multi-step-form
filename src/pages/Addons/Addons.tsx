@@ -42,6 +42,7 @@ const Addons: React.FC<{}> = () => {
               <AddonCheckbox
                 id={`addon-${addon.id}`}
                 name="addons"
+                value={addon.id}
                 control={control}
                 content={{
                   ...addon,
