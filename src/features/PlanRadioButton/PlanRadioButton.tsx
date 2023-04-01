@@ -22,13 +22,15 @@ const PlanRadioButton: React.FC<PlanRadioButtonProps> = ({
 }) => {
   const {
     field: { value: plan, onChange },
-  } = useController(props);
+  } = useController({ name: props.name, control: props.control });
 
   const labelClassName = [
     "p-3 flex flex-col gap-10 border rounded hover:border-purplish-blue hover:cursor-pointer",
     plan === props.value ? "border-purplish-blue" : "border-light-gray",
     plan === props.value ? "bg-alabaster" : "bg-white",
   ].join(" ");
+
+  const onInputChange = () => onChange(props.value);
 
   return (
     <label className={labelClassName}>
@@ -42,7 +44,12 @@ const PlanRadioButton: React.FC<PlanRadioButtonProps> = ({
           <p className="text-sm text-marine-blue">{content.note}</p>
         )}
       </div>
-      <input type="radio" className="hidden" {...props} onChange={onChange} />
+      <input
+        type="radio"
+        className="hidden"
+        {...props}
+        onChange={onInputChange}
+      />
     </label>
   );
 };
