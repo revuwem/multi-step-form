@@ -7,12 +7,21 @@ import PlanRadioButton from "../../features/PlanRadioButton/PlanRadioButton";
 import { Link, useNavigate } from "react-router-dom";
 import { useSubscriptionState } from "../../shared/context/Subscription/SubscriptionContext";
 import { SubmitHandler, useForm } from "react-hook-form";
+import useSWR from "swr";
+import { getSubscriptionPlan } from "../../shared/api";
 
 const Plan: React.FC<{}> = () => {
+  const {
+    data: planData,
+    error,
+    isLoading,
+  } = useSWR<IPlan[]>("/subscription/plan", getSubscriptionPlan);
+
   const { state, setState } = useSubscriptionState();
   const { handleSubmit, control } = useForm<ISubscription>({
     defaultValues: state,
   });
+
   const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<ISubscription> = (data) => {
@@ -30,39 +39,22 @@ const Plan: React.FC<{}> = () => {
       </Paragraph>
       <form action="">
         <div className="mb-8 grid grid-cols-3 gap-5">
-          <PlanRadioButton
-            id="plan-arcade"
-            name="plan"
-            value="arcade"
-            control={control}
-            content={{
-              title: "Arcade",
-              label: "$9/mo",
-              iconSrc: "/assets/images/icon-arcade.svg",
-            }}
-          />
-          <PlanRadioButton
-            id="plan-advanced"
-            name="plan"
-            value="advanced"
-            control={control}
-            content={{
-              title: "Advanced",
-              label: "$12/mo",
-              iconSrc: "/assets/images/icon-advanced.svg",
-            }}
-          />
-          <PlanRadioButton
-            id="plan-pro"
-            name="plan"
-            value="pro"
-            control={control}
-            content={{
-              title: "Pro",
-              label: "$15/mo",
-              iconSrc: "/assets/images/icon-pro.svg",
-            }}
-          />
+          {planData &&
+            planData.length > 0 &&
+            planData.map((plan) => (
+              <PlanRadioButton
+                key={`plan-${plan.id}`}
+                id={`plan-${plan.id}`}
+                name="plan"
+                value={plan.id}
+                control={control}
+                content={{
+                  title: plan.name,
+                  label: `$${plan.price[state.period]}/${state.period}`,
+                  iconSrc: plan.icon,
+                }}
+              />
+            ))}
         </div>
         <PeriodSwitch name="period" control={control} />
       </form>
