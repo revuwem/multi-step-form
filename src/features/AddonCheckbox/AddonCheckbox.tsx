@@ -8,6 +8,7 @@ interface AddonCheckboxProps
       keyof UseControllerProps<ISubscription, "addons">
     > {
   id: string;
+  value: number;
   content: {
     name: string;
     description: string;
@@ -23,7 +24,7 @@ const AddonCheckbox: React.FC<AddonCheckboxProps> = ({ content, ...props }) => {
     name: props.name,
     control: props.control,
   });
-  const checked = useMemo(() => value[props.id] ?? false, [value]);
+  const checked = useMemo(() => value[props.value] ?? false, [value]);
 
   const containerClassName = [
     "text-base p-5 flex items-center gap-5 border rounded transition hover:border-purplish-blue hover:cursor-pointer",
@@ -35,9 +36,9 @@ const AddonCheckbox: React.FC<AddonCheckboxProps> = ({ content, ...props }) => {
     const newValue = { ...value };
     // if addon already exist, then change value to opposite,
     // else add with "true" value
-    newValue[props.id]
-      ? (newValue[props.id] = !newValue[props.id])
-      : (newValue[props.id] = true);
+    newValue[props.value]
+      ? (newValue[props.value] = !newValue[props.value])
+      : (newValue[props.value] = true);
     onChange(newValue);
   };
 
@@ -50,6 +51,7 @@ const AddonCheckbox: React.FC<AddonCheckboxProps> = ({ content, ...props }) => {
       <input
         type="checkbox"
         checked={checked}
+        value={props.value}
         onChange={onInputChange}
         className="hidden"
       />
