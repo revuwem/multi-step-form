@@ -3,9 +3,22 @@ import Heading from "../../ui/Heading/Heading";
 import Paragraph from "../../ui/Paragraph/Paragraph";
 import AddonCheckbox from "../../features/AddonCheckbox/AddonCheckbox";
 import Layout from "../../features/Layout/Layout";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useSubscriptionState } from "../../shared/context/Subscription/SubscriptionContext";
+import { SubmitHandler, useForm } from "react-hook-form";
 
 const Addons: React.FC<{}> = () => {
+  const { state, setState } = useSubscriptionState();
+  const { handleSubmit, control } = useForm<ISubscription>({
+    defaultValues: state,
+  });
+  const navigate = useNavigate();
+
+  const onSubmit: SubmitHandler<ISubscription> = (data) => {
+    setState({ ...state, addons: data.addons });
+    navigate("/summary");
+  };
+
   return (
     <Layout>
       <Heading level="h2" className="mb-2">
@@ -17,42 +30,39 @@ const Addons: React.FC<{}> = () => {
       <form action="">
         <div className="grid gap-4">
           <AddonCheckbox
-            id="addon"
-            name="addon"
+            id="addon-1"
+            name="addons"
+            control={control}
             content={{
               title: "Online Service",
               label: "Access to multiplayer games",
               price: "+$1/mo",
             }}
-            checked={false}
-            onChange={() => {}}
           />
           <AddonCheckbox
-            id="addon"
-            name="addon"
+            id="addon-2"
+            name="addons"
+            control={control}
             content={{
               title: "Larger storage",
               label: "Extra 1TB of cloud save",
               price: "+$2/mo",
             }}
-            checked={false}
-            onChange={() => {}}
           />
           <AddonCheckbox
-            id="addon"
-            name="addon"
+            id="addon-3"
+            name="addons"
+            control={control}
             content={{
               title: "Customizable profile",
               label: "Custom theme on your profile",
               price: "+$2/mo",
             }}
-            checked={false}
-            onChange={() => {}}
           />
         </div>
       </form>
       <div className="grow flex flex-row-reverse justify-between items-end">
-        <Button as={Link} to="/summary" variant="secondary">
+        <Button onClick={handleSubmit(onSubmit)} variant="secondary">
           Next step
         </Button>
         <Button as={Link} to="/plan" variant="ghost">
