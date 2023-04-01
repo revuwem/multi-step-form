@@ -22,6 +22,10 @@ interface IPlan {
     month: number;
     year: number;
   };
+  specialOffer: {
+    month?: string;
+    year?: string;
+  }
 }
 
 interface IAddon {
