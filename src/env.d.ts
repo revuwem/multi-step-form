@@ -5,12 +5,15 @@ interface ISubscription {
     phone: string;
   };
   plan: SubscriptionPlan;
-  addons: IAddon[] | null;
+  addons: SubscriptionAddons;
   period: SubscriptionPeriod;
 }
 
 type SubscriptionPeriod = "month" | "year"
 type SubscriptionPlan = "arcade" | "advanced" | "pro"
+type SubscriptionAddons = {
+  [key: string]: boolean;
+};
 
 interface IPlan {
     id: number;
