@@ -8,7 +8,7 @@ const subscriptionDefaultValue = {
       email: "",
       phone: "",
     },
-    plan: "arcade",
+    plan: undefined,
     addons: {},
     period: "month",
   } as ISubscription,
