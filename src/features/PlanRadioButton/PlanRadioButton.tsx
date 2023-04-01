@@ -6,23 +6,26 @@ interface PlanRadioButtonProps
       React.InputHTMLAttributes<HTMLInputElement>,
       keyof UseControllerProps<ISubscription, "plan">
     > {
-  id: string;
   content: {
-    title: string;
-    label: string;
+    name: string;
+    price: number;
+    icon: string;
     note?: string;
-    iconSrc: string;
+    period: "mo" | "yr";
   };
 }
 
 const PlanRadioButton: React.FC<PlanRadioButtonProps> = ({
   content,
-  checked,
   ...props
 }) => {
   const {
     field: { value: plan, onChange },
-  } = useController({ name: props.name, control: props.control });
+  } = useController({
+    name: props.name,
+    control: props.control,
+    rules: { required: true },
+  });
 
   const labelClassName = [
     "p-3 flex flex-col gap-10 border rounded hover:border-purplish-blue hover:cursor-pointer",
@@ -34,22 +37,22 @@ const PlanRadioButton: React.FC<PlanRadioButtonProps> = ({
 
   return (
     <label className={labelClassName}>
-      <div className="">
-        <img src={content.iconSrc} alt="" />
-      </div>
-      <div className="flex flex-col gap-1">
-        <p className="text-marine-blue font-medium">{content.title}</p>
-        <p className="text-sm text-cool-gray">{content.label}</p>
-        {content.note && (
-          <p className="text-sm text-marine-blue">{content.note}</p>
-        )}
-      </div>
       <input
         type="radio"
         className="hidden"
         {...props}
         onChange={onInputChange}
       />
+      <div>
+        <img src={content.icon} alt="" />
+      </div>
+      <div className="flex flex-col gap-1">
+        <p className="text-marine-blue font-medium">{content.name}</p>
+        <p className="text-sm text-cool-gray">{`$${content.price}/${content.period}`}</p>
+        {content.note && (
+          <p className="text-sm text-marine-blue">{content.note}</p>
+        )}
+      </div>
     </label>
   );
 };
