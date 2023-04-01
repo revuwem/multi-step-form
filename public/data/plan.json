@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Arcade",
+    "icon": "/assets/images/icon-arcade.svg",
+    "price": {
+      "month": 9,
+      "year": 12
+    }
+  },
+  {
+    "id": 2,
+    "name": "Advanced",
+    "icon": "/assets/images/icon-advanced.svg",
+    "price": {
+      "month": 12,
+      "year": 15
+    }
+  },
+  {
+    "id": 3,
+    "name": "Pro",
+    "icon": "/assets/images/icon-pro.svg",
+    "price": {
+      "month": 15,
+      "year": 18
+    }
+  }
+]
