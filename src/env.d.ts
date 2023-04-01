@@ -17,6 +17,7 @@ type SubscriptionAddons = {
 interface IPlan {
   id: number;
   name: string;
+  icon: string;
   price: {
     month: number;
     year: number;
