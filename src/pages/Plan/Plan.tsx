@@ -18,7 +18,7 @@ const Plan: React.FC<{}> = () => {
   } = useSWR<IPlan[]>("/subscription/plan", getSubscriptionPlan);
 
   const { state, setState } = useSubscriptionState();
-  const { handleSubmit, control } = useForm<ISubscription>({
+  const { handleSubmit, control, watch } = useForm<ISubscription>({
     defaultValues: state,
   });
 
@@ -28,6 +28,8 @@ const Plan: React.FC<{}> = () => {
     setState({ ...state, plan: data.plan, period: data.period });
     navigate("/addons");
   };
+
+  const period = watch("period");
 
   return (
     <Layout>
@@ -49,9 +51,10 @@ const Plan: React.FC<{}> = () => {
                 value={plan.id}
                 control={control}
                 content={{
-                  title: plan.name,
-                  label: `$${plan.price[state.period]}/${state.period}`,
-                  iconSrc: plan.icon,
+                  ...plan,
+                  period: period === "month" ? "mo" : "yr",
+                  price: plan.price[period],
+                  note: plan.specialOffer[period],
                 }}
               />
             ))}
