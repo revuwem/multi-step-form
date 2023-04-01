@@ -4,33 +4,31 @@ interface ISubscription {
     email: string;
     phone: string;
   };
-  plan: SubscriptionPlan;
+  plan: number | undefined;
   addons: SubscriptionAddons;
   period: SubscriptionPeriod;
 }
 
-type SubscriptionPeriod = "month" | "year"
-type SubscriptionPlan = "arcade" | "advanced" | "pro"
+type SubscriptionPeriod = "month" | "year";
 type SubscriptionAddons = {
   [key: string]: boolean;
 };
 
 interface IPlan {
-    id: number;
-    name: string;
-    price: {
-        month: number;
-        year: number;
-    }
+  id: number;
+  name: string;
+  price: {
+    month: number;
+    year: number;
+  };
 }
 
 interface IAddon {
-    id: number;
-    name: string;
-    description?: string;
-    price: {
-        month: number;
-        year: number;
-    }
+  id: number;
+  name: string;
+  description?: string;
+  price: {
+    month: number;
+    year: number;
+  };
 }
-
