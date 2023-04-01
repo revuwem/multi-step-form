@@ -6,8 +6,15 @@ import Layout from "../../features/Layout/Layout";
 import { Link, useNavigate } from "react-router-dom";
 import { useSubscriptionState } from "../../shared/context/Subscription/SubscriptionContext";
 import { SubmitHandler, useForm } from "react-hook-form";
+import useSWR from "swr";
+import { getSubscriptionAddons } from "../../shared/api";
 
 const Addons: React.FC<{}> = () => {
+  const {
+    data: addonsData,
+    error,
+    isLoading,
+  } = useSWR<IAddon[]>("subscription/addons", getSubscriptionAddons);
   const { state, setState } = useSubscriptionState();
   const { handleSubmit, control } = useForm<ISubscription>({
     defaultValues: state,
@@ -29,36 +36,20 @@ const Addons: React.FC<{}> = () => {
       </Paragraph>
       <form action="">
         <div className="grid gap-4">
-          <AddonCheckbox
-            id="addon-1"
-            name="addons"
-            control={control}
-            content={{
-              title: "Online Service",
-              label: "Access to multiplayer games",
-              price: "+$1/mo",
-            }}
-          />
-          <AddonCheckbox
-            id="addon-2"
-            name="addons"
-            control={control}
-            content={{
-              title: "Larger storage",
-              label: "Extra 1TB of cloud save",
-              price: "+$2/mo",
-            }}
-          />
-          <AddonCheckbox
-            id="addon-3"
-            name="addons"
-            control={control}
-            content={{
-              title: "Customizable profile",
-              label: "Custom theme on your profile",
-              price: "+$2/mo",
-            }}
-          />
+          {addonsData &&
+            addonsData.length > 0 &&
+            addonsData.map((addon) => (
+              <AddonCheckbox
+                id={`addon-${addon.id}`}
+                name="addons"
+                control={control}
+                content={{
+                  ...addon,
+                  price: addon.price[state.period],
+                  period: state.period === "month" ? "mo" : "yr",
+                }}
+              />
+            ))}
         </div>
       </form>
       <div className="grow flex flex-row-reverse justify-between items-end">
