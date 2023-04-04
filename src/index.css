@@ -37,6 +37,6 @@
   display: grid;
   grid-template-columns: 1fr;
   place-content: center;
-  justify-items: center;
+  place-items: center;
   background-color: var(--color-magnolia);
 }
