@@ -40,7 +40,7 @@ const Plan: React.FC<{}> = () => {
         You have the option of monthly or yearly billing.
       </Paragraph>
       <form action="">
-        <div className="mb-8 grid grid-cols-3 gap-5">
+        <div className="mb-8 grid md:grid-cols-3 gap-4">
           {planData &&
             planData.length > 0 &&
             planData.map((plan) => (
