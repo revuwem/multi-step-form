@@ -14,11 +14,11 @@ const Template: ComponentStory<typeof AddonCheckbox> = (args) => (
 export const Default = Template.bind({});
 Default.args = {
   id: "1",
-  name: "addon",
   checked: false,
   content: {
-    title: "Online service",
-    label: "Access to multiplayer games",
-    price: "+$10/yr",
+    name: "Online service",
+    description: "Access to multiplayer games",
+    price: 10,
+    period: "mo",
   },
 };
