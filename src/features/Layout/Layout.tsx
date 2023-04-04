@@ -27,7 +27,7 @@ const steps = [
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <Box>
-      <main className="min-h-[600px] w-[940px] p-4 grid grid-cols-4">
+      <main className="min-h-[600px] w-full max-w-[940px] p-4 grid grid-cols-1 md:grid-cols-4">
         <Stepper steps={steps} />
         <section className="px-24 py-6 col-span-3 grid grid-rows-layout">
           {children}
