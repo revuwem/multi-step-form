@@ -33,7 +33,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <Box>
       <main className="min-h-[600px] w-full max-w-[940px] p-4 grid grid-cols-1 md:grid-cols-4">
         <Stepper steps={steps} />
-        <section className="px-24 py-6 col-span-3 grid grid-rows-layout">
+        <section className="px-6 md:px-24 py-6 col-span-3 grid grid-rows-layout">
           {children}
         </section>
       </main>
