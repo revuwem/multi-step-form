@@ -17,9 +17,10 @@ Default.args = {
   name: "plan",
   checked: false,
   content: {
-    iconSrc: "/assets/images/icon-arcade.svg",
-    title: "Arcade",
-    label: "$90/yr",
+    icon: "/assets/images/icon-arcade.svg",
+    name: "Arcade",
+    price: 9,
+    period: "mo",
     note: "",
   },
 };
@@ -27,12 +28,11 @@ Default.args = {
 export const WithNote = Template.bind({});
 WithNote.args = {
   id: "1",
-  name: "plan",
-  checked: false,
   content: {
-    iconSrc: "/assets/images/icon-arcade.svg",
-    title: "Arcade",
-    label: "$90/yr",
+    icon: "/assets/images/icon-arcade.svg",
+    name: "Arcade",
+    price: 90,
+    period: "yr",
     note: "2 month free",
   },
 };
