@@ -48,6 +48,7 @@ const Info: React.FC<{}> = () => {
           label="info.email"
           register={register}
           required
+          error={!!errors?.info?.email}
           displayedLabel="Email address"
           placeholder="e.g. stephenking@lorem.com"
         />
@@ -56,6 +57,7 @@ const Info: React.FC<{}> = () => {
           label="info.phone"
           register={register}
           required
+          error={!!errors?.info?.phone}
           displayedLabel="Phone number"
           placeholder="e.q. +1 234 567 890"
         />
