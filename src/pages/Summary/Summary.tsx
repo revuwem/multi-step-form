@@ -100,7 +100,7 @@ const Summary: React.FC<{}> = () => {
           }`}</p>
         </section>
       </section>
-      <div className="flex flex-row-reverse justify-between items-end">
+      <div className="flex flex-row-reverse justify-between items-end pt-6">
         <Button as={Link} to="/success">
           Confirm
         </Button>

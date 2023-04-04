@@ -62,7 +62,7 @@ const Info: React.FC<{}> = () => {
           placeholder="e.q. +1 234 567 890"
         />
       </form>
-      <div className="grow flex flex-row-reverse items-end">
+      <div className="grow flex flex-row-reverse items-end pt-6">
         <Button onClick={handleSubmit(onSubmit)} variant="secondary">
           Next step
         </Button>

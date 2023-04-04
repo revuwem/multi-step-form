@@ -53,7 +53,7 @@ const Addons: React.FC<{}> = () => {
             ))}
         </div>
       </form>
-      <div className="grow flex flex-row-reverse justify-between items-end">
+      <div className="grow flex flex-row-reverse justify-between items-end pt-6">
         <Button onClick={handleSubmit(onSubmit)} variant="secondary">
           Next step
         </Button>
