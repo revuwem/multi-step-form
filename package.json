@@ -9,9 +9,11 @@
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "deploy": "yarn build && gh-pages -d dist"
   },
   "dependencies": {
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.7",
