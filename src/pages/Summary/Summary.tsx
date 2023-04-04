@@ -29,8 +29,6 @@ const Summary: React.FC<{}> = () => {
     [state, addonsData]
   );
 
-  console.log(selectedAddons);
-
   const total = useMemo(() => {
     const totalPlan = selectedPlan ? selectedPlan.price[state.period] : 0;
     const totalAddons = selectedAddons
