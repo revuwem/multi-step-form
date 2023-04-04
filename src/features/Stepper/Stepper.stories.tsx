@@ -17,14 +17,17 @@ Default.args = {
     {
       number: "1",
       label: "Your info",
+      path: "/",
     },
     {
       number: "2",
       label: "Select plan",
+      path: "/plan",
     },
     {
       number: "3",
       label: "Add-ons",
+      path: "/addons",
     },
   ],
 };
