@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Arcade",
-    "icon": "/assets/images/icon-arcade.svg",
+    "icon": "assets/images/icon-arcade.svg",
     "price": {
       "month": 9,
       "year": 90
@@ -14,7 +14,7 @@
   {
     "id": 2,
     "name": "Advanced",
-    "icon": "/assets/images/icon-advanced.svg",
+    "icon": "assets/images/icon-advanced.svg",
     "price": {
       "month": 12,
       "year": 120
@@ -26,7 +26,7 @@
   {
     "id": 3,
     "name": "Pro",
-    "icon": "/assets/images/icon-pro.svg",
+    "icon": "assets/images/icon-pro.svg",
     "price": {
       "month": 15,
       "year": 150
